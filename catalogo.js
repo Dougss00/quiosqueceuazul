@@ -6,7 +6,7 @@ window.CATALOGO = [
         "nome": "Brahma Duplo Malte",
         "preco": "R$ 10,00",
         "descricao": "Cerveja premium com sabor encorpado e refrescante, perfeita para momentos de descontração. Lata 350ml.",
-        "imagem": "assets/images/brahma.png",
+        "imagem": "brahma.png",
         "alt": "Brahma",
         "destaque": "NOVO"
     },
