@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cardápio digital do Quiosque Céu Azul.">
+    <meta name="theme-color" content="#1E3F66">
+    <title>Quiosque Céu Azul</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <script src="assets/js/catalogo.js" defer></script>
+    <script src="assets/js/app.js" defer></script>
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="cabecalho-conteudo">
+            <h1>Quiosque Céu Azul</h1>
+            <p>Feito pra te atender bem</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="controles">
+            <button class="tema-btn" id="tema-btn" type="button" aria-pressed="false" aria-label="Ativar tema escuro">
+                <span id="tema-icone" aria-hidden="true">🌙</span>
+                <span id="tema-texto">Tema Escuro</span>
+            </button>
+        </div>
+
+        <nav class="abas" id="abas" role="tablist" aria-label="Categorias do cardápio">
+            <button class="aba-btn ativa" type="button" role="tab" aria-selected="true" aria-controls="painel-cervejas" id="tab-cervejas" data-aba="cervejas">🍺 Cervejas</button>
+            <button class="aba-btn" type="button" role="tab" aria-selected="false" aria-controls="painel-bebidas" id="tab-bebidas" data-aba="bebidas" tabindex="-1">🥃 Bebidas Quentes</button>
+            <button class="aba-btn" type="button" role="tab" aria-selected="false" aria-controls="painel-comidas" id="tab-comidas" data-aba="comidas" tabindex="-1">🍽️ Comidas</button>
+            <button class="aba-btn" type="button" role="tab" aria-selected="false" aria-controls="painel-ices" id="tab-ices" data-aba="ices" tabindex="-1">🧊 Ices</button>
+            <button class="aba-btn" type="button" role="tab" aria-selected="false" aria-controls="painel-petiscos" id="tab-petiscos" data-aba="petiscos" tabindex="-1">🍟 Petiscos</button>
+        </nav>
+
+        <section class="conteudo-principal" aria-live="polite">
+            <div class="conteudo-aba ativa" id="painel-cervejas" role="tabpanel" aria-labelledby="tab-cervejas" data-painel="cervejas">
+                <div class="itens" data-lista="cervejas"></div>
+            </div>
+            <div class="conteudo-aba" id="painel-bebidas" role="tabpanel" aria-labelledby="tab-bebidas" data-painel="bebidas" hidden>
+                <div class="itens" data-lista="bebidas"></div>
+            </div>
+            <div class="conteudo-aba" id="painel-comidas" role="tabpanel" aria-labelledby="tab-comidas" data-painel="comidas" hidden>
+                <div class="itens" data-lista="comidas"></div>
+            </div>
+            <div class="conteudo-aba" id="painel-ices" role="tabpanel" aria-labelledby="tab-ices" data-painel="ices" hidden>
+                <div class="itens" data-lista="ices"></div>
+            </div>
+            <div class="conteudo-aba" id="painel-petiscos" role="tabpanel" aria-labelledby="tab-petiscos" data-painel="petiscos" hidden>
+                <div class="itens" data-lista="petiscos"></div>
+            </div>
+        </section>
+    </main>
+
+    <noscript>
+        <p class="aviso-js">Este cardápio precisa do JavaScript ativado para exibir os produtos.</p>
+    </noscript>
+</body>
+</html>

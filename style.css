@@ -1,0 +1,394 @@
+/* =========================================
+   QUIOSQUE CÉU AZUL — estilos principais
+   ========================================= */
+
+:root {
+    color-scheme: light;
+    --azul-ceu: #87CEEB;
+    --azul-marinho: #1E3F66;
+    --branco-nuvem: #F8F9FA;
+    --dourado-sol: #FFD700;
+    --verde-agua: #7FFFD4;
+    --azul-escuro: #0A1F3A;
+    --texto: #333333;
+    --texto-suave: #6C757D;
+    --card: #FFFFFF;
+    --borda: #B6E2F5;
+    --card-escuro: #162A47;
+    --borda-escura: #2A4365;
+    --sombra: 0 5px 15px rgba(0, 0, 0, 0.08);
+    --sombra-hover: 0 10px 25px rgba(30, 63, 102, 0.15);
+    --raio: 16px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 20px;
+    background: var(--branco-nuvem);
+    color: var(--texto);
+    font-family: 'Nunito Sans', 'Segoe UI', Roboto, Arial, sans-serif;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button:focus-visible,
+.aba-btn:focus-visible {
+    outline: 3px solid var(--dourado-sol);
+    outline-offset: 3px;
+}
+
+.cabecalho {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 24px;
+    padding: 32px 20px;
+    text-align: center;
+    color: #FFFFFF;
+    border-radius: var(--raio);
+    border-bottom: 3px solid var(--dourado-sol);
+    background:
+        linear-gradient(to bottom, rgba(135, 206, 235, 0.35), rgba(30, 63, 102, 0.62)),
+        url("https://upload.wikimedia.org/wikipedia/commons/e/ee/Povoado_Do_Po%C3%A7o_Grande_-_Araci.jpg") center / cover no-repeat;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.10);
+}
+
+.cabecalho::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(to right, var(--azul-ceu), var(--verde-agua), var(--dourado-sol));
+}
+
+.cabecalho-conteudo {
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    margin: 0 0 8px;
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2rem, 6vw, 2.7rem);
+    line-height: 1.1;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+.cabecalho p {
+    margin: 0;
+    font-size: 1.05rem;
+    opacity: 0.95;
+}
+
+.controles {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.tema-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 15px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--azul-marinho);
+    color: #FFFFFF;
+    cursor: pointer;
+    font-weight: 700;
+    transition: transform 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.tema-btn:hover {
+    transform: translateY(-1px);
+    background: var(--azul-ceu);
+    color: var(--azul-marinho);
+}
+
+.abas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 28px;
+    padding: 4px 2px 10px;
+}
+
+.aba-btn {
+    flex: 0 0 auto;
+    padding: 11px 17px;
+    border: 2px solid var(--azul-ceu);
+    border-radius: 999px;
+    background: var(--branco-nuvem);
+    color: var(--azul-marinho);
+    cursor: pointer;
+    white-space: nowrap;
+    font-weight: 700;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.aba-btn:hover {
+    transform: translateY(-2px);
+    border-color: var(--azul-marinho);
+    box-shadow: 0 5px 10px rgba(30, 63, 102, 0.18);
+}
+
+.aba-btn.ativa {
+    background: var(--azul-marinho);
+    color: #FFFFFF;
+    border-color: var(--azul-marinho);
+    box-shadow: 0 5px 15px rgba(30, 63, 102, 0.25);
+}
+
+.conteudo-aba[hidden] {
+    display: none;
+}
+
+.conteudo-aba.ativa {
+    animation: fadeIn 0.35s ease;
+}
+
+.itens {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+}
+
+.item {
+    position: relative;
+    overflow: hidden;
+    background: var(--card);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+    box-shadow: var(--sombra);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 5px;
+    background: var(--azul-ceu);
+}
+
+.item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sombra-hover);
+}
+
+.item-img-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #F3F6F8;
+}
+
+.item img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    padding: 8px;
+    transition: transform 0.35s ease;
+}
+
+.item:hover img {
+    transform: scale(1.04);
+}
+
+.item-info {
+    padding: 18px;
+}
+
+.item-cabecalho {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.item-nome {
+    margin: 0;
+    color: var(--azul-marinho);
+    font-size: 1.15rem;
+    line-height: 1.25;
+    font-weight: 800;
+}
+
+.item-preco {
+    flex: 0 0 auto;
+    padding: 5px 11px;
+    border-radius: 999px;
+    background: var(--azul-marinho);
+    color: #FFFFFF;
+    font-size: 0.96rem;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.item-descricao {
+    margin: 0;
+    color: var(--texto-suave);
+    font-size: 0.94rem;
+}
+
+.destaque {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 3;
+    max-width: calc(100% - 28px);
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--dourado-sol);
+    color: var(--azul-marinho);
+    font-size: 0.76rem;
+    line-height: 1.3;
+    font-weight: 800;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+}
+
+.aviso-js {
+    margin: 24px 0;
+    padding: 14px;
+    border-radius: 10px;
+    background: #FFF3CD;
+    color: #664D03;
+}
+
+body.tema-escuro {
+    color-scheme: dark;
+    background: var(--azul-escuro);
+    color: #F2F5F8;
+}
+
+body.tema-escuro .item {
+    background: var(--card-escuro);
+    border-color: var(--borda-escura);
+}
+
+body.tema-escuro .item-img-container {
+    background: #10233D;
+}
+
+body.tema-escuro .item-nome {
+    color: #F2F5F8;
+}
+
+body.tema-escuro .item-descricao {
+    color: #C3CBD5;
+}
+
+body.tema-escuro .aba-btn {
+    background: var(--card-escuro);
+    color: #F2F5F8;
+    border-color: var(--borda-escura);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.28);
+}
+
+body.tema-escuro .aba-btn.ativa {
+    background: var(--azul-marinho);
+    color: #FFFFFF;
+    border-color: var(--azul-ceu);
+    box-shadow: 0 5px 15px rgba(135, 206, 235, 0.18);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (min-width: 600px) {
+    .itens {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 900px) {
+    body {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 30px;
+    }
+
+    .cabecalho {
+        padding: 42px 20px;
+    }
+
+    .itens {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 14px;
+    }
+
+    .abas {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scroll-snap-type: x proximity;
+        padding-bottom: 12px;
+    }
+
+    .aba-btn {
+        scroll-snap-align: start;
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .item-cabecalho {
+        align-items: flex-start;
+    }
+
+    .item-nome {
+        font-size: 1.05rem;
+    }
+
+    .item-preco {
+        font-size: 0.9rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
