@@ -1,7 +1,7 @@
 (() => {
     'use strict';
 
-    const FALLBACK_IMAGE = 'assets/images/fallback.svg';
+    const FALLBACK_IMAGE = 'fallback.svg';
     const produtos = Array.isArray(window.CATALOGO) ? window.CATALOGO : [];
     const botoesAbas = [...document.querySelectorAll('.aba-btn')];
     const paineis = [...document.querySelectorAll('[data-painel]')];
